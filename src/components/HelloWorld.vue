@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import Chessboard from "./Chessboard.vue";
 
 defineProps({
   msg: String,
@@ -15,7 +14,6 @@ const count = ref(0);
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
   </div>
-  <Chessboard />
 </template>
 
 <style scoped></style>

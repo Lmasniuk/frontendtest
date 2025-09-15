@@ -29,6 +29,7 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 
 # Thoughts
 
+- Board square labeling should be in algebraic notation, where bottom right is 1a, top right is 8h.
 - Need to keep top level state of active/clicked square
 - Need to keep top level state of square click history
   - Maybe put this in localStorage? Or at least in memory to start
