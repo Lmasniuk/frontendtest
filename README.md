@@ -18,6 +18,21 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 6. Keep track of which squares are clicked and the order in which they're clicked.
 7. Display the information collected from step 6 in the sidebar.
 
+# TODO
+
+- Create Chessboard Component
+- Create Sidebar Component
+- Ensure Responsiveness for desktop and mobile screen sizes(see req 2, 3, 4)
+- Implement chess square highlighting on click --> Keep state of which square is active
+- Keep track of order of squares clicked --> Likely with an array, or some sort of ordered data structure
+- Display order of squares clicked in side bar
+
+# Thoughts
+
+- Need to keep top level state of active/clicked square
+- Need to keep top level state of square click history
+  - Maybe put this in localStorage? Or at least in memory to start
+
 # Questions & Feedback
 
 Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback regarding this challenge.
