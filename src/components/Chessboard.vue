@@ -62,6 +62,8 @@ const setActiveSquare = (squarePosition) => {
   flex-direction: column;
   align-items: center;
   width: 70%;
+
+  padding: 1rem;
 }
 
 .board {
