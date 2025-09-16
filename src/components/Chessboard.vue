@@ -28,7 +28,6 @@ const squares = rows.flatMap((row) => {
 const setActiveSquare = (squarePosition) => {
   activeSquare.value = squarePosition;
 
-  // push to the parent's boardHistory
   const updatedHistory = [...props.modelValue, squarePosition];
   emit("update:modelValue", updatedHistory);
 };
@@ -36,14 +35,13 @@ const setActiveSquare = (squarePosition) => {
 
 <template>
   <div class="board-wrapper">
-    <h1>Chessboard</h1>
-
     <div class="board">
       <div
         v-for="square in squares"
         :key="square.row + square.col"
         class="square"
         :class="[
+          'square',
           (square.row + square.col) % 2 === 0 ? 'dark' : 'light',
           activeSquare === `${square.row}${square.col}` ? 'highlighted' : '',
         ]"
@@ -62,8 +60,6 @@ const setActiveSquare = (squarePosition) => {
   flex-direction: column;
   align-items: center;
   width: 70%;
-
-  padding: 1rem;
 }
 
 .board {

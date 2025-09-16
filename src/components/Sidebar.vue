@@ -9,10 +9,15 @@ defineProps({
 <template>
   <div class="history">
     <div class="history__card">
-      <h2>History</h2>
-      <ul>
-        <li v-for="(previousMove, index) in boardHistory">
-          {{ index + 1 }}. {{ previousMove }}
+      <div class="history__title">
+        <h2>History</h2>
+      </div>
+      <ul class="history__content">
+        <li class="history__item" v-for="(previousMove, index) in boardHistory">
+          {{ index + 1 }}.
+          {{
+            previousMove[0] + String.fromCharCode(Number(previousMove[1]) + 96)
+          }}
         </li>
       </ul>
     </div>
@@ -33,16 +38,34 @@ li {
     width: 30%;
   }
 
-  h2 {
-    text-align: center;
+  &__card {
+    border: 1px solid #5c5c5c;
+    border-radius: 0.5rem;
+    width: 50%;
+    max-height: 640px;
+    overflow: scroll;
   }
 
-  &__card {
-    padding: 1rem;
-    background-color: rgb(130, 141, 127);
-    border-radius: 1rem;
-    width: 50%;
-    margin-top: 2rem;
+  &__title {
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    /* border-bottom: 1px solid #383838; */
+  }
+
+  &__content {
+    color: #5c5c5c;
+    padding: 0;
+  }
+
+  &__item {
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #aeaeae;
+
+    /* &:last-child {
+      border-bottom: none;
+    } */
   }
 }
 </style>

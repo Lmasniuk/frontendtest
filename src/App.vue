@@ -16,6 +16,7 @@ const boardHistory = defineModel({ default: [] });
 .wrapper {
   display: flex;
   flex-direction: column;
+  padding: 2rem;
 
   @include desktop {
     flex-direction: row;

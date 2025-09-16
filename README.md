@@ -27,6 +27,14 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 - Keep track of order of squares clicked --> Likely with an array, or some sort of ordered data structure
 - Display order of squares clicked in side bar
 
+# Extras
+
+- Deploy
+- Control panel for extra features
+  - Show/hide square coordinates
+  - Themes?
+  - Random position populator?
+
 # Thoughts
 
 - Board square labeling should be in algebraic notation, where bottom right is 1a, top right is 8h.
