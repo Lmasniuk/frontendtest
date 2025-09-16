@@ -1,15 +1,16 @@
 <script setup>
 import { ref } from "vue";
-import Square from "./Square.vue";
 
-defineProps({
-  boardHistory: {
+const props = defineProps({
+  modelValue: {
     type: Array,
     required: true,
   },
 });
 
-const activeSquare = ref("11");
+const emit = defineEmits(["update:modelValue"]);
+
+const activeSquare = ref("");
 const rows = [8, 7, 6, 5, 4, 3, 2, 1];
 const cols = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -26,11 +27,15 @@ const squares = rows.flatMap((row) => {
 
 const setActiveSquare = (squarePosition) => {
   activeSquare.value = squarePosition;
+
+  // push to the parent's boardHistory
+  const updatedHistory = [...props.modelValue, squarePosition];
+  emit("update:modelValue", updatedHistory);
 };
 </script>
 
 <template>
-  <div>
+  <div class="board-wrapper">
     <h1>Chessboard</h1>
 
     <div class="board">
@@ -52,6 +57,13 @@ const setActiveSquare = (squarePosition) => {
 </template>
 
 <style lang="scss" scoped>
+.board-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
 .board {
   margin-left: auto;
   margin-right: auto;

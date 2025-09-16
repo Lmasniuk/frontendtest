@@ -1,15 +1,24 @@
 <script setup>
-import { ref } from "vue";
-
-import HelloWorld from "./components/HelloWorld.vue";
 import Chessboard from "./components/Chessboard.vue";
+import Sidebar from "./components/Sidebar.vue";
 
-const boardHistory = ref([]);
+const boardHistory = defineModel({ default: [] });
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
-  <Chessboard :boardHistory="boardHistory" />
+  <div class="wrapper">
+    <Chessboard v-model="boardHistory" />
+    <Sidebar :boardHistory="boardHistory" />
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
+</style>
