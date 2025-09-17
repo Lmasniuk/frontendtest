@@ -28,7 +28,12 @@ const squares = rows.flatMap((row) => {
 const setActiveSquare = (squarePosition) => {
   activeSquare.value = squarePosition;
 
-  const updatedHistory = [...props.modelValue, squarePosition];
+  const boardHistoryEntry = {
+    squarePosition,
+    date: Date.now(),
+  };
+
+  const updatedHistory = [...props.modelValue, boardHistoryEntry];
   emit("update:modelValue", updatedHistory);
 };
 </script>
@@ -50,16 +55,22 @@ const setActiveSquare = (squarePosition) => {
         {{ square.row }}{{ String.fromCharCode(96 + square.col) }}
       </div>
     </div>
-    <p>Active Square: {{ activeSquare }}</p>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .board-wrapper {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 100%;
+  padding: 1rem;
+
+  @include desktop {
+    padding: 2rem;
+  }
 }
 
 .board {
@@ -68,16 +79,27 @@ const setActiveSquare = (squarePosition) => {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  max-width: 640px;
+  width: 100%;
+  max-width: calc($square-size-mobile * 8);
+
+  @include desktop {
+    max-width: calc($square-size-desktop * 8);
+  }
 }
 
 .square {
-  width: 80px;
-  height: 80px;
+  width: $square-size-mobile;
+  height: $square-size-mobile;
   display: flex;
   align-items: flex-end;
-  padding: 6px;
-  border: 4px solid transparent;
+  border: 2px solid transparent;
+  padding: 0.25rem;
+  transition: border-color 0.3s ease;
+  font-size: 0.7rem;
+  @include desktop {
+    width: $square-size-desktop;
+    height: $square-size-desktop;
+  }
 
   &.dark {
     background-color: $square-color-1;
@@ -87,7 +109,7 @@ const setActiveSquare = (squarePosition) => {
   }
 
   &.highlighted {
-    border: 4px solid yellow;
+    border: 2px solid $square-outline-color;
   }
 }
 </style>

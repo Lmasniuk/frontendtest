@@ -33,7 +33,6 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 - Control panel for extra features
   - Show/hide square coordinates
   - Themes?
-  - Random position populator?
 
 # Thoughts
 
