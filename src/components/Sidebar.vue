@@ -1,34 +1,14 @@
 <script setup>
+import { numberToColumn, timeSince } from "@/utils/converters";
+
 defineProps({
   boardHistory: {
     type: Array,
     required: true,
   },
 });
-
-const timeSince = (timestamp) => {
-  const now = Date.now();
-  const diffMs = now - timestamp;
-  const diffSec = Math.floor(diffMs / 1000);
-
-  if (diffSec < 60) {
-    return `${diffSec} second${diffSec !== 1 ? "s" : ""} ago`;
-  }
-
-  const diffMin = Math.floor(diffSec / 60);
-  if (diffMin < 60) {
-    return `${diffMin} minute${diffMin !== 1 ? "s" : ""} ago`;
-  }
-
-  const diffHours = Math.floor(diffMin / 60);
-  if (diffHours < 24) {
-    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-  }
-
-  const diffDays = Math.floor(diffHours / 24);
-  return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-};
 </script>
+
 <template>
   <div class="history">
     <div class="history__title">
@@ -40,7 +20,7 @@ const timeSince = (timestamp) => {
           {{ index + 1 }}.
           {{
             previousMove.squarePosition[0] +
-            String.fromCharCode(Number(previousMove.squarePosition[1]) + 96)
+            numberToColumn(Number(previousMove.squarePosition[1]))
           }}
         </span>
         <span class="history__timestamp"
@@ -82,7 +62,7 @@ li {
 
   &__content {
     padding: 1rem;
-    color: #5c5c5c;
+    color: $history-text-color;
     padding: 0;
   }
 

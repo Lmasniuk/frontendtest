@@ -20,26 +20,19 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 
 # TODO
 
-- Create Chessboard Component
-- Create Sidebar Component
-- Ensure Responsiveness for desktop and mobile screen sizes(see req 2, 3, 4)
-- Implement chess square highlighting on click --> Keep state of which square is active
-- Keep track of order of squares clicked --> Likely with an array, or some sort of ordered data structure
-- Display order of squares clicked in side bar
-
-# Extras
-
-- Deploy
-- Control panel for extra features
-  - Show/hide square coordinates
-  - Themes?
+- ✅ Create Chessboard Component
+- ✅ Create Sidebar Component
+- ✅ Ensure Responsiveness for desktop and mobile screen sizes(see req 2, 3, 4)
+- ✅ Implement chess square highlighting on click --> Keep state of which square is active
+- ✅ Keep track of order of squares clicked(use an array)
+- ✅ Display order of squares clicked in side bar
+- ✅ Deploy App
 
 # Thoughts
 
 - Board square labeling should be in algebraic notation, where bottom right is 1a, top right is 8h.
 - Need to keep top level state of active/clicked square
 - Need to keep top level state of square click history
-  - Maybe put this in localStorage? Or at least in memory to start
 
 # Questions & Feedback
 
